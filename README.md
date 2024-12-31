@@ -1,6 +1,6 @@
 # name of non-profit
 
-{One sentence description of the project}
+A web app for visualizing the environmental, economic, and societal benefits of renewable energy adoption.
 
 ## Table of Contents
 
@@ -13,16 +13,16 @@
 
 ### Purpose
 
-{Short paragraph description of the non-profit mission and the purpose of this project. Who will this project help, why is it necessary. Impact of the project.}
+Surfrider Foundation San Luis Obispo (SLO) is a local chapter of the larger Surfrider Foundation, a non-profit environmental organization focused on the protection and preservation of the world's oceans and beaches. Surfrider SLO aims to leverage collected metric data on renewable energy sources, climate change impacts, temperature trends, e-grid usage, and other related factors to forecast the human mortality impacts associated with renewable versus nonrenewable energy use. The organization seeks to translate these data points into an actionable model that highlights the benefits of renewable energy adoption. Additionally, Surfrider SLO intends to present this information through an interactive and accessible web platform, enabling users to visualize the direct environmental, economic, and societal benefits of combating climate change and transitioning to cleaner energy solutions.
 
 ### Team
 
-The {non-profit name} team consists of {#} Cal Poly students. Over the course of about 9 months, we worked as a team to deploy this web application. The team members are listed below:
+The Surfrider team consists of {#} Cal Poly students. Over the course of about 9 months, we worked as a team to deploy this web application. The team members are listed below:
 
-- [First Last](https://www.linkedin.com/) - Project Manager
+- [Sanjana Checker](https://www.linkedin.com/in/sanjanachecker/) - Project Manager
+- [Ryan Hu](https://www.linkedin.com/in/ryan-hu/) - Tech Lead
+- [Ryan Chan](https://www.linkedin.com/in/ryan-chan7/) - Tech Lead
 - [First Last](https://www.linkedin.com/) - Designer
-- [First Last](https://www.linkedin.com/) - Tech Lead
-- [First Last](https://www.linkedin.com/) - Tech Lead
 - [First Last](https://www.linkedin.com/) - Software Developer
 
 ## Getting Started And Contributing
