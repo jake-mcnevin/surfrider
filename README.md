@@ -1,4 +1,4 @@
-# name of non-profit
+# Surfrider
 
 A web app for visualizing the environmental, economic, and societal benefits of renewable energy adoption.
 
@@ -17,12 +17,15 @@ Surfrider Foundation San Luis Obispo (SLO) is a local chapter of the larger Surf
 
 ### Team
 
-The Surfrider team consists of {#} Cal Poly students. Over the course of about 9 months, we worked as a team to deploy this web application. The team members are listed below:
+The Surfrider team consists of 15 Cal Poly students. Over the course of about 9 months, we worked as a team to deploy this web application. The team members are listed below:
 
 - [Sanjana Checker](https://www.linkedin.com/in/sanjanachecker/) - Project Manager
 - [Ryan Hu](https://www.linkedin.com/in/ryan-hu/) - Tech Lead
 - [Ryan Chan](https://www.linkedin.com/in/ryan-chan7/) - Tech Lead
-- [First Last](https://www.linkedin.com/) - Designer
+- [Jake Eichenseer](https://www.linkedin.com/) - Designer
+- [Fionn Kha](https://www.linkedin.com/) - Designer
+- [Haixin H](https://www.linkedin.com/) - Designer
+- [Edrick Wong](https://www.linkedin.com/) - Designer
 - [First Last](https://www.linkedin.com/) - Software Developer
 
 ## Getting Started And Contributing
