@@ -16,16 +16,6 @@ const locationOptions = EgridLocation.options;
 export default function CalculatorForm() {
   const form = useForm({
     resolver: zodResolver(CalculateInput),
-    defaultValues: {
-      installedCapacity: 0,
-      powerPlantClass: "",
-      location: "",
-      capacityFactor: 0,
-      population2070: 0,
-      startYear: 2025,
-      lifeTimeYears: 30,
-      yearOfStudy: 2025,
-    },
   });
 
   const onSubmit = (values: unknown) => {
