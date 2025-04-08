@@ -1,4 +1,4 @@
-import { FormulaParser } from "@/utils/formula-parser";
+import { FormulaParser } from "@/formulas/formula-parser";
 import {
   annualPowerGeneration,
   CO2PerkWhConsumed,
@@ -30,7 +30,7 @@ import {
   poundsOfCoalBurned,
   tonsOfWasteRecycledInsteadOfLandfilled,
   numberOfGarbageTrucksOfWasteRecycledInsteadOfLandfilled,
-} from "@/utils/formula-collection";
+} from "@/formulas/formula-collection";
 import { FormulaDependency } from "@/schema/formula";
 
 // This should all be gotten from the calculator input and EGRID/AVERT databases
