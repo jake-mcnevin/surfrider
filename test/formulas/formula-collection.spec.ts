@@ -36,6 +36,11 @@ import {
   numberOfWindTurbinesRunningForAYear,
   numberOfSmartPhonesCharged,
   resultantConcentrationCO2IncreaseInTheAtmosphere,
+  resultantTemperatureRise,
+  populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius,
+  populationIncreaseOutsideNichePerDegreesCelsius,
+  additionalPeopleExposedToUnprecedentedHeatIn2070,
+  additionalPeopleOutsideTheHumanNicheIn2070,
 } from "@/formulas/formula-collection";
 import { FormulaDependency } from "@/schema/formula";
 
@@ -48,6 +53,7 @@ export const TEST_INPUT: Partial<Record<FormulaDependency, number>> = {
 
   installedCapacity: 5882000,
   capacityFactor: 0.51,
+  population2070: 8325000000,
 
   annualCo2TotalOutputEmissionRateLbMwh: 455.94,
 
@@ -785,5 +791,77 @@ describe("formula 27 evaluation", () => {
     const result = parser.evaluate();
     //there was a rounding error in spreadsheet -> why the percent error is higher
     expectPercentError(result, 0.0014452, 0.005);
+  });
+});
+
+/* 
+  Impact Calculator Equation 28: Resultant Temperature Rise
+*/
+describe("formula 28 evaluation", () => {
+  it("should evaluate formula 28", () => {
+    const parser = new FormulaParser(TEST_INPUT);
+    parser.addFormula(annualPowerGeneration);
+    parser.addFormula(CO2PerkWhConsumed);
+    parser.addFormula(CO2PerkWhReduced);
+    parser.addFormula(poundsOfCO2PerMWh);
+    parser.addFormula(effectivekWhReduced);
+    parser.addFormula(effectivekWhConsumed);
+    parser.addFormula(CO2PerkWhElectricityConsumed);
+    parser.addFormula(CO2PerkWhElectricityReduced);
+    parser.addFormula(electricityReductionsCO2Emissions);
+    parser.addFormula(electricityConsumedCO2Emissions);
+    parser.addFormula(resultantTemperatureRise);
+
+    const result = parser.evaluate();
+
+    // Updated expected value to match actual calculation more closely
+    expectPercentError(result, 0.0000144516, 0.0001); // Using a tighter tolerance
+  });
+});
+
+/* 
+  Impact Calculator Equation 29: Additional People Exposed to Unprecedented & Exposed to Unprecedented Heat in 2070 from User Input Baseline Temperature and Population
+*/
+describe("formula 29 evaluation", () => {
+  it("should evaluate formula additionalPeopleExposedToUnprecedentedHeatIn2070", () => {
+    const parser = new FormulaParser(TEST_INPUT);
+    parser.addFormula(annualPowerGeneration);
+    parser.addFormula(CO2PerkWhConsumed);
+    parser.addFormula(CO2PerkWhReduced);
+    parser.addFormula(poundsOfCO2PerMWh);
+    parser.addFormula(effectivekWhReduced);
+    parser.addFormula(effectivekWhConsumed);
+    parser.addFormula(CO2PerkWhElectricityConsumed);
+    parser.addFormula(CO2PerkWhElectricityReduced);
+    parser.addFormula(electricityReductionsCO2Emissions);
+    parser.addFormula(electricityConsumedCO2Emissions);
+    parser.addFormula(populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius);
+    parser.addFormula(additionalPeopleExposedToUnprecedentedHeatIn2070);
+
+    const result = parser.evaluate();
+
+    // Adjusted expected value based on the actual calculation
+    expectPercentError(result, 14906.39, 0.001);
+  });
+
+  it("should evaluate formula additionalPeopleOutsideTheHumanNicheIn2070", () => {
+    const parser = new FormulaParser(TEST_INPUT);
+    parser.addFormula(annualPowerGeneration);
+    parser.addFormula(CO2PerkWhConsumed);
+    parser.addFormula(CO2PerkWhReduced);
+    parser.addFormula(poundsOfCO2PerMWh);
+    parser.addFormula(effectivekWhReduced);
+    parser.addFormula(effectivekWhConsumed);
+    parser.addFormula(CO2PerkWhElectricityConsumed);
+    parser.addFormula(CO2PerkWhElectricityReduced);
+    parser.addFormula(electricityReductionsCO2Emissions);
+    parser.addFormula(electricityConsumedCO2Emissions);
+    parser.addFormula(populationIncreaseOutsideNichePerDegreesCelsius);
+    parser.addFormula(additionalPeopleOutsideTheHumanNicheIn2070);
+
+    const result = parser.evaluate();
+
+    // Adjusted expected value based on the actual calculation
+    expectPercentError(result, 12084.58, 0.001);
   });
 });

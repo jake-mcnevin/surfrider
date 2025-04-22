@@ -917,6 +917,99 @@ export const resultantConcentrationCO2IncreaseInTheAtmosphere: Formula = {
   ],
 };
 
+/* 
+  Impact Calculator Equation 28: Resultant Temperature Rise
+*/
+export const resultantTemperatureRise: Formula = {
+  id: "resultantTemperatureRise",
+  name: "Resultant Temperature Rise",
+  explanation:
+    "CO₂ emissions leads to increased atmospheric concetration of CO₂ which leads to a global temerature rise",
+  assumptions: [
+    "10ppm CO₂ in the atmosphere leads to .1C temperature rise",
+    "Temperature rise and CO₂ concentration are linearly correllated in the temperature range of focus",
+    "Inherritted assumptions from Concentration Increase CO₂ in Atmosphere",
+    "Inherritted assumptions from CO₂ Emissions from Electricity Consumption and Reduction",
+  ],
+  sources: ["https://factsonclimate.org/infographics/concentration-warming-relationship"],
+  expression:
+    "(powerPlantClass == 0 ? electricityConsumedCO2Emissions : electricityReductionsCO2Emissions) / 7820000000 * 0.01",
+  unit: "°C increase",
+  setupScope: (() => {}) as (...args: unknown[]) => void,
+  dependencies: ["electricityConsumedCO2Emissions", "electricityReductionsCO2Emissions"],
+};
+
+/* 
+  Impact Calculator Equation 29: Additional People Exposed to Unprecedented & Exposed to Unprecedented Heat in 2070 from User Input Baseline Temperature and Population
+*/
+export const populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius: Formula = {
+  id: "populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius",
+  name: "Population Increase Exposed to Unprecedented Heat Per Degrees Celsius",
+  explanation:
+    "Calculates the number of additional people exposed to unprecedented heat in 2070 based on the user input baseline population.",
+  assumptions: [""],
+  sources: [""],
+  // use the following expression for mathjs: (Population) x (0.285 + -4.4E-11*(Population) + 2.61E-21*(Population)^2 + 4.21E-32*(Population)^3)
+  expression:
+    "population2070 * (0.285 + -4.4 * 10^-11 * population2070 + 2.61 * 10^-21 * population2070^2 + 4.21E-32 * population2070^3)",
+  unit: "People/°C",
+  setupScope: (() => {}) as (...args: unknown[]) => void,
+  dependencies: ["population2070"],
+};
+
+export const populationIncreaseOutsideNichePerDegreesCelsius: Formula = {
+  id: "populationIncreaseOutsideNichePerDegreesCelsius",
+  name: "Population Increase Outside the Human Niche Per Degrees Celsius",
+  explanation:
+    "Calculates the number of additional people outside the human niche in 2070 based on the user input baseline population.",
+  assumptions: [""],
+  sources: [""],
+  // use the following expression for mathjs: (Population) x (0.179 + -1.11E-11*(Population) + -5.07E-23*(Population)^2 + 3.01E-32*(Population)^3)
+  expression:
+    "population2070 * (0.179 + -1.11 * 10^-11 * population2070 + -5.07 * 10^-23 * population2070^2 + 3.01E-32 * population2070^3)",
+  unit: "People/°C",
+  setupScope: (() => {}) as (...args: unknown[]) => void,
+  dependencies: ["population2070"],
+};
+
+export const additionalPeopleExposedToUnprecedentedHeatIn2070: Formula = {
+  id: "additionalPeopleExposedToUnprecedentedHeatIn2070",
+  name: "Additional People Exposed to Unprecedented & Exposed to Unprecedented Heat in 2070 from User Input Baseline Temperature and Population",
+  explanation:
+    "CO₂ emissions leads to increased atmospheric concetration of CO₂ which leads to a global temerature rise which leads to increased human exposure to unprecedented heat",
+  assumptions: [
+    "Assumed best fit on supplemental sheet",
+    "Inherritted assumptions from CO₂ Emissions from Electricity Consumption and Reduction, Concentration Increase CO₂ in Atmosphere, & Resultant Temperature Rise",
+  ],
+  sources: [""],
+  expression:
+    "((powerPlantClass == 0 ? electricityConsumedCO2Emissions : electricityReductionsCO2Emissions) / 7820000000) * 0.01 * populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius",
+  unit: "Additional People Exposed to Unprecedented Heat in 2070",
+  setupScope: (() => {}) as (...args: unknown[]) => void,
+  dependencies: [
+    "electricityConsumedCO2Emissions",
+    "electricityReductionsCO2Emissions",
+    "populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius",
+  ],
+};
+
+export const additionalPeopleOutsideTheHumanNicheIn2070: Formula = {
+  id: "additionalPeopleOutsideTheHumanNicheIn2070",
+  name: "Additional People Outside the Human Niche in 2070",
+  explanation:
+    "CO₂ emissions leads to increased atmospheric concetration of CO₂ which leads to a global temerature rise which leads to increased human exposure to unprecedented heat",
+  assumptions: [
+    "Assumed best fit on supplemental sheet",
+    "Inherritted assumptions from CO₂ Emissions from Electricity Consumption and Reduction, Concentration Increase CO₂ in Atmosphere, & Resultant Temperature Rise",
+  ],
+  sources: [""],
+  expression:
+    "((powerPlantClass == 0 ? electricityConsumedCO2Emissions : electricityReductionsCO2Emissions) / 7820000000) * 0.01 * populationIncreaseOutsideNichePerDegreesCelsius",
+  unit: "Additional People Outside the Human Niche in 2070",
+  setupScope: (() => {}) as (...args: unknown[]) => void,
+  dependencies: ["population2070", "electricityConsumedCO2Emissions", "electricityReductionsCO2Emissions"],
+};
+
 // group and export all formulas
 export const formulas: Formula[] = [
   annualPowerGeneration,
@@ -955,4 +1048,9 @@ export const formulas: Formula[] = [
   numberOfWindTurbinesRunningForAYear,
   numberOfSmartPhonesCharged,
   resultantConcentrationCO2IncreaseInTheAtmosphere,
+  resultantTemperatureRise,
+  populationIncreaseExposedToUnprecedentedHeatPerDegreesCelsius,
+  populationIncreaseOutsideNichePerDegreesCelsius,
+  additionalPeopleExposedToUnprecedentedHeatIn2070,
+  additionalPeopleOutsideTheHumanNicheIn2070,
 ];
