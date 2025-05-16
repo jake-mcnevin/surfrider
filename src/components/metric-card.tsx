@@ -5,39 +5,52 @@ import { Card } from "@/components/ui/card";
 import { Tooltip, TooltipTrigger, TooltipContent, TooltipProvider } from "@/components/ui/tooltip";
 
 export const MetricCard: React.FC<{
-  value: number; //value to display
-  label: string; //unit for the value
-  subtext: string; //subtext for the value and unit
-  tooltipText: string; //tooltip info
-  icon: React.ReactNode; //icon component
-  bgColor: string; //background color
+  value: number;
+  label: string;
+  subtext: string;
+  tooltipText: string;
+  icon: React.ReactNode;
+  bgColor: string;
 }> = ({ value, label, subtext, tooltipText, icon, bgColor }) => {
   return (
-    <TooltipProvider>
-      <Card className={`${bgColor} relative rounded-xl p-4 shadow-sm w-64 max-w-full border-none`}>
-        {/* Info tooltip icon */}
-        <div className="absolute top-2 right-2">
+    <Card
+      className={`
+      ${bgColor}
+      w-[340px]
+      h-[380px]
+      relative
+      rounded-xl
+      overflow-hidden
+      flex
+      flex-col
+      justify-between
+      py-6
+      px-5
+    `}
+    >
+      {/* Tooltip */}
+      <TooltipProvider>
+        <div className="absolute top-4 right-4">
           <Tooltip>
             <TooltipTrigger asChild>
-              <span className="text-[#6F6F6F] text-[16px] cursor-help">ⓘ</span>
+              <span className="text-[#6F6F6F] text-[18px] cursor-help">ⓘ</span>
             </TooltipTrigger>
             <TooltipContent>
-              <p className="max-w-xs text-sm text-[#6F6F6F]">{tooltipText}</p>
+              <p className="max-w-xs text-[18px] text-[#6F6F6F]">{tooltipText}</p>
             </TooltipContent>
           </Tooltip>
         </div>
+      </TooltipProvider>
 
-        {/* Value and Label */}
-        <div className="text-center p-8">
-          <h3 className="font-bold text-[30px] text-[#6F6F6F] p-1">{value.toExponential(2).replace("e+", " E")}</h3>
-          <br />
-          <p className="font-bold text-[20px] text-[#6F6F6F] p-1">{label}</p>
-          <p className="font-light text-[12px] text-[#6F6F6F]">{subtext}</p>
-        </div>
+      {/* Main Text Content with adjusted spacing */}
+      <div className="flex flex-col items-center text-center space-y-3 pt-6">
+        <h3 className="font-bold text-[24px] text-[#6F6F6F]">{value.toLocaleString()}</h3>
+        <p className="font-bold text-[24px] text-[#6F6F6F]">{label}</p>
+        <p className="font-light text-[16px] text-[#6F6F6F]">{subtext}</p>
+      </div>
 
-        {/* Icon at the bottom */}
-        <div className="mt-6 flex justify-center">{icon}</div>
-      </Card>
-    </TooltipProvider>
+      {/* Icon slightly higher from the bottom */}
+      <div className="flex justify-center items-end h-24 mb-7">{icon}</div>
+    </Card>
   );
 };
