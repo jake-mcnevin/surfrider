@@ -4,6 +4,7 @@ import * as React from "react";
 import { ImpactField } from "@/components/impact-field";
 import SocietalImpactFields from "@/components/societal-impact-fields";
 import ConsumerImpactFields from "@/components/consumer-impact-fields";
+import SspFields from "@/components/ssp-fields";
 
 export default function Home() {
   return (
@@ -28,7 +29,16 @@ export default function Home() {
           <ConsumerImpactFields />
         </ImpactField>
 
-        <ImpactField title="SSP"></ImpactField>
+        <ImpactField title="Shared Socioeconomic Pathways&nbsp;(SSP) Fields">
+          <SspFields
+            endOfLifeYear="2058"
+            endOfLifeMortality="4,661"
+            endOfLifeTemperature="1.77 °C ↑"
+            yearOfStudy="2099"
+            yearOfStudyMortality="18,116"
+            yearOfStudyTemperature="1.72 °C ↑"
+          />
+        </ImpactField>
       </div>
     </div>
   );
