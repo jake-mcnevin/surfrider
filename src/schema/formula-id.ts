@@ -12,7 +12,7 @@ export const FormulaId = z.enum([
   "CO2PerkWhElectricityConsumed",
   "electricityConsumedCO2Emissions",
   "gallonsOfGasolineBurnedEquivalentCO2Emissions",
-  "gallonsOfDieselConsumedEquivalentCO2Emission",
+  "gallonsOfDieselConsumedEquivalentCO2Emissions",
   "gasolinePoweredPassengerVehiclesPerYearEquivalentCO2Emissions",
   "milesDrivenByTheAverageGasolinePoweredPassengerVehicleEquivalentCO2Emissions",
   "thermsOfNaturalGasEquivalentCO2Emissions",
@@ -48,12 +48,12 @@ export const FormulaId = z.enum([
   "averageOnshoreWindTurbinesInCalifornia",
   "averageOffshoreWindTurbinesInCalifornia",
   "averageOilPlantsInCalifornia",
-  "averageFossilFuelPlantsInCalifornia",
+  // "averageFossilFuelPlantsInCalifornia",
   "averageAcresOfSolarInCalifornia",
   "lifetimeEffectivekWhReduced",
   "lifetimeEffectivekWhConsumed",
   "lifetimeGallonsOfGasolineBurnedEquivalentCO2Emissions",
-  "lifetimeGallonsOfDieselConsumedEquivalentCO2Emission",
+  "lifetimeGallonsOfDieselConsumedEquivalentCO2Emissions",
   "lifetimeGasolinePoweredPassengerVehiclesPerYearEquivalentCO2Emissions",
   "lifetimeMilesDrivenByTheAverageGasolinePoweredPassengerVehicleEquivalentCO2Emissions",
   "lifetimeThermsOfNaturalGasEquivalentCO2Emissions",
@@ -81,6 +81,7 @@ export const FormulaId = z.enum([
   "lifetimeAdditionalPeopleExposedToUnprecedentedHeatIn2070",
   "lifetimeAdditionalPeopleOutsideTheHumanNicheIn2070",
   "lifetimeMetricTonsOfCO2",
+  "lbsCO2MWhEmissionRate",
 ]);
 
 export type FormulaId = z.infer<typeof FormulaId>;

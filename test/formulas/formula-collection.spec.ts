@@ -48,6 +48,7 @@ import {
   averageAcresOfSolarInCalifornia,
   lifetimeFormulas,
   lifetimeMetricTonsOfCO2,
+  lbsCO2MWhEmissionRate,
 } from "@/formulas/formula-collection";
 import { Formula, FormulaDependency } from "@/schema/formula";
 
@@ -1008,7 +1009,7 @@ describe("result average acres of solar evaluation", () => {
 // I excluded lifetimeEffectivekWhReduced and lifetimeEffectivekWhConsumed because they wouldn't work for some reason. I wrote their tests manually in this file.
 const EXPECTED_RESULTS: Record<string, number> = {
   lifetimeGallonsOfGasolineBurnedEquivalentCO2Emissions: 38150000000,
-  lifetimeGallonsOfDieselConsumedEquivalentCO2Emission: 33305000000,
+  lifetimeGallonsOfDieselConsumedEquivalentCO2Emissions: 33305000000,
   lifetimeGasolinePoweredPassengerVehiclesPerYearEquivalentCO2Emissions: 75510476.2,
   lifetimeMilesDrivenByTheAverageGasolinePoweredPassengerVehicleEquivalentCO2Emissions: 869340000000,
   lifetimeThermsOfNaturalGasEquivalentCO2Emissions: 63970000000,
@@ -1115,5 +1116,16 @@ describe("lifetime CO2 emissions evaluation", () => {
     const result = parser.evaluate();
 
     expectPercentError(result, 339042038.14, 0.001);
+  });
+});
+
+describe("Pounds of CO₂ per MWh emission rate evaluation", () => {
+  it("should evaluate lbsCO2MWhEmissionRate", () => {
+    const parser = new FormulaParser(TEST_INPUT);
+    parser.addFormula(lbsCO2MWhEmissionRate);
+
+    const result = parser.evaluate();
+
+    expectPercentError(result, 948.1, 0.001);
   });
 });
