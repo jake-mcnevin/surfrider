@@ -1,9 +1,15 @@
 import { fetchAndTransformAvertData } from "@/services/avert-fetch";
 import { addAvertRecord } from "@/services/avert-store";
 import { apiErrorHandler } from "@/utils/errors";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
-export async function GET() {
+export async function GET(request: NextRequest) {
+  const authHeader = request.headers.get("authorization");
+
+  if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
+    return new NextResponse("Unauthorized", { status: 401 });
+  }
+
   try {
     const records = await fetchAndTransformAvertData();
     //iterate over the AvertRecord objects and add them to the database
