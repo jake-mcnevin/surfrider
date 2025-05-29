@@ -79,29 +79,40 @@ export default function Calculator() {
           formExpanded ? "bottom-1/2 translate-y-1/2" : "bottom-0 translate-y-0",
         )}
       >
-        <h1 className="text-xl font-semibold text-slate-900 text-center col-span-full">
-          Surfrider Carbon Impact Calculator
-        </h1>
+        <div className="flex flex-col sm:flex-row justify-center items-center sm:justify-between sm:items-start">
+          <h1 className="text-xl font-semibold text-slate-900 text-center w-full mt-5 sm:mt-0">
+            Surfrider Carbon Impact Calculator
+          </h1>
+          {/* Toggle button */}
+          {submitted && (
+            <div
+              onClick={handleToggleForm}
+              className={cn(
+                "text-gray-400 cursor-pointer",
+                "absolute top-3 left-1/2 -translate-x-1/2",
+                "sm:relative sm:top-0 sm:left-auto sm:translate-x-0 sm:order-last",
+              )}
+            >
+              <ChevronUp
+                className={cn(
+                  "w-7 h-7 transition-all duration-500 ease-in-out",
+                  formExpanded ? "rotate-180" : "rotate-0",
+                )}
+              />
+            </div>
+          )}
+        </div>
+
         <div
           className={cn(
             "transition-all duration-500 ease-in-out overflow-hidden",
             formExpanded ? "max-h-[100vh]" : "max-h-[0vh]",
           )}
         >
-          <CalculatorForm onSubmit={handleSubmit} />
-        </div>
-
-        {/* Toggle button */}
-        {submitted && (
-          <div onClick={handleToggleForm} className="absolute top-5 right-11 text-gray-400 p-2 cursor-pointer">
-            <ChevronUp
-              className={cn(
-                "w-7 h-7 transition-all duration-500 ease-in-out",
-                formExpanded ? "rotate-180" : "rotate-0",
-              )}
-            />
+          <div className="max-h-[calc(100vh-6rem)] overflow-y-auto px-1 sm:px-0">
+            <CalculatorForm onSubmit={handleSubmit} />
           </div>
-        )}
+        </div>
       </div>
 
       {/* Results */}
