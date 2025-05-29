@@ -40,7 +40,7 @@ export default function Home() {
       {/* Dimmed background on form expansion */}
       <div
         className={cn(
-          "fixed inset-0 bg-black transition-bg-opacity duration-500 ease-in-out",
+          "fixed inset-0 z-10 bg-black transition-bg-opacity duration-500 ease-in-out",
           submitted && formExpanded ? "bg-opacity-50" : "bg-opacity-0 pointer-events-none",
         )}
         onClick={handleToggleForm}
