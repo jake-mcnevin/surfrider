@@ -2,11 +2,9 @@
 
 # Overview
 
-"Surfrider SLO aims to leverage collected metric data on renewable energy sources, climate change impacts, temperature trends, e-grid usage, and other related factors to forecast the human mortality impacts associated with renewable versus nonrenewable energy use. The organization seeks to translate these data points into an actionable model that highlights the benefits of renewable energy adoption.
+Surfrider SLO aims to leverage collected metric data on renewable energy sources, climate change impacts, temperature trends, e-grid usage, and other related factors to forecast the human mortality impacts associated with renewable versus nonrenewable energy use. The organization seeks to translate these data points into an actionable model that highlights the benefits of renewable energy adoption.
 
-Additionally, Surfrider SLO intends to present this information through an interactive and accessible web platform, enabling users to visualize the direct environmental, economic, and societal benefits of combating climate change and transitioning to cleaner energy solutions."
-
-*from [PRD: Surfrider SLO](https://www.notion.so/PRD-Surfrider-SLO-13d197abf07b80d29cd3cb24383ca938?pvs=21)*
+Additionally, Surfrider SLO intends to present this information through an interactive and accessible web platform, enabling users to visualize the direct environmental, economic, and societal benefits of combating climate change and transitioning to cleaner energy solutions.
 
 # Background
 
