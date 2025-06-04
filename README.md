@@ -46,6 +46,8 @@ The Surfrider team consists of 15 Cal Poly students. Over the course of about 9 
 
 ## Getting Started And Contributing
 
-Visit [getting-started.md](docs/getting-started.md) on info for how to set up this repo.
+Visit [getting-started.md](docs/getting-started.md) for info on how to set up this repo.
 
-Visit [contributing.md](docs/contributing.md) on info for how to contribute to this repo.
+Visit [contributing.md](docs/contributing.md) for info on how to contribute to this repo.
+
+Visit [technical-overview.md](docs/technical-overview.md) for comprehensive technical documentation.
