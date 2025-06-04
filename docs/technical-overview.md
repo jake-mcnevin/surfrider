@@ -22,7 +22,7 @@ The calculator works by combining three main components:
 
 ## Architecture Overview
 
-![Surfrider_Design.drawio (1).png](images/technical-design.png)
+![Surfrider_Design.drawio (1).png](images/architecture.png)
 
 The system consists of two main parts: a **Next.js web application** and **automated data pipelines**. These are connected by a **MongoDB database** that stores all EPA data required for calculations.
 
