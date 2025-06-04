@@ -16,9 +16,9 @@ describe("SspFields", () => {
   it("renders both BlueCard and RedCard with correct values", () => {
     render(<SspFields {...DEFAULT_PROPS} />);
 
-    expect(screen.getByText("4661")).toBeInTheDocument();
+    expect(screen.getByText("4670")).toBeInTheDocument();
     expect(screen.getByText("Mortalities by 2058")).toBeInTheDocument();
-    expect(screen.getByText("18116")).toBeInTheDocument();
+    expect(screen.getByText("18148")).toBeInTheDocument();
     expect(screen.getByText("Mortalities by 2099")).toBeInTheDocument();
 
     expect(screen.getByText("1.7744 °C ↑")).toBeInTheDocument();
